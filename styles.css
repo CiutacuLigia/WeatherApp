@@ -1,9 +1,27 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: hsl(0, 0%, 95%);
+    /* background-color: hsl(0, 0%, 95%); */
+   width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
+    
+}
+
+.display::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('basil.png'), no-repeat;
+    background-size:cover;
+    opacity: 0.7;
+    z-index: -1;
+    
 }
 
 .weatherForm {
@@ -12,19 +30,27 @@ body {
 
 .cityInput{
     padding: 10px;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     border: 2px solid hsl(0, 0%, 20%, 0.3);
     border-radius: 10px;
     margin: 10px;
     width: 300px;
+    box-shadow: inset;
+    outline: 0;
+    transition: border .15s, box-shadow .15s;
 }
+
+.cityInput:focus {
+    box-shadow: 0 0 0 5px rgb(255, 189, 66);;
+}
+
 
 button[type="submit"]{
     padding: 10px 20px;
     font-weight: bold;
-    font-size: 2rem;
-    background-color: rgb(38, 188, 38);
+    font-size: 1.5rem;
+    background-color: rgb(149, 149, 255);
     color: white;
     border: none;
     border-radius: 5px;
@@ -32,7 +58,7 @@ button[type="submit"]{
 }
 
 button[type="submit"]:hover{
-    background-color: rgb(37, 143, 37);;
+    background-color: rgb(255, 189, 66);
 }
 
 .card {
@@ -40,14 +66,14 @@ button[type="submit"]:hover{
     padding: 50px;
     border-radius: 10px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-    min-width: 300px;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     margin-top: 0;
     margin-bottom: 25px;
 }
@@ -58,7 +84,7 @@ p {
 }
 
 .cityDisplay, .tempDisplay {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.75);
     margin-bottom: 25px;
@@ -77,11 +103,11 @@ p {
 
 .weatherEmoji {
     margin: 0;
-    font-size: 7.5rem;
+    font-size: 8.5rem;
 }
 
 .errorDisplay {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.75);
 }
